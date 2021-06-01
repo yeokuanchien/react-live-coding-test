@@ -6,18 +6,6 @@ function Home() {
   const [text, setText] = useState("");
   const [isReady, setIsReady] = useState(false);
 
-  const handleReady = (e) => {
-    setText(e.target.value);
-  };
-
-  useEffect(() => {
-    if (text === "Ready!") {
-      setIsReady(true);
-    } else {
-      setIsReady(false);
-    }
-  }, [text]);
-
   return (
     <div className="App">
       <header className="App-header">
@@ -36,7 +24,7 @@ function Home() {
           hint away when Ready! is in the textbox.
         </b>
         <p>Are you ready to be a pokemon master?</p>
-        <input type="text" name="name" onChange={handleReady} />
+        <input type="text" name="name" />
         {!isReady && <span style={{ color: "red" }}>I am not ready yet!</span>}
       </header>
     </div>
