@@ -20,60 +20,33 @@ function PokeDex() {
       background: "black",
       color: "white",
     },
-    overlay: { backgroundColor: "grey"},
+    overlay: { backgroundColor: "grey" },
   };
 
-  const getPokemonDetails = async (url) => {
-    setIsLoading(true);
-    try {
-      const request = {
-        url: url,
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-      const response = await axios(request);
-      setPokemonDetail(response.data);
-    } catch {
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const callPokeDex = async () => {
-    setIsLoading(true);
-    try {
-      const request = {
-        url: "https://pokeapi.co/api/v2/pokemon",
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-      const response = await axios(request);
-      setPokemons(response.data.results);
-    } catch {
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  const pokemonView = (pokemon) => {
+  if (!isLoading && pokemons.length === 0) {
     return (
       <div>
-        <p
-          onClick={() => {
-            getPokemonDetails(pokemon.url);
-          }}
-        >
-          {pokemon.name}
-        </p>
+        <header className="App-header">
+          <h1>Welcome to pokedex !</h1>
+          <h2>Requirement:</h2>
+          <ul>
+            <li>
+              Call this api:https://pokeapi.co/api/v2/pokemon to get pokedex
+            </li>
+            <li>Implement React Loading and show it during API call</li>
+            <li>when hover, change the pokemon name</li>
+            <li>when clicked, show the modal below</li>
+            <li>
+              Add a search bar on top of the bar for searching, search will run
+              on keyup event
+            </li>
+            <li>Implement sorting and pagingation</li>
+            <li>Commit your codes after done</li>
+          </ul>
+        </header>
       </div>
     );
-  };
-  useEffect(() => {
-    callPokeDex();
-  }, []);
+  }
 
   return (
     <div>
@@ -82,17 +55,14 @@ function PokeDex() {
           <>
             <div className="App">
               <header className="App-header">
-                <ReactLoading type="bars" height="10%" width="20%" />
-                <b>Pouching Pokemon</b>
+                <b>Implement loader here</b>
               </header>
             </div>
           </>
         ) : (
           <>
             <h1>Welcome to pokedex !</h1>
-            {pokemons.map((pokemon) => {
-              return pokemonView(pokemon);
-            })}
+            <b>Implement Pokedex list here</b>
           </>
         )}
       </header>
@@ -106,16 +76,13 @@ function PokeDex() {
           style={customStyles}
         >
           <div>
-            <img src={pokemonDetail.sprites.front_default} />
-            <p>{pokemonDetail.name}</p>
+            Requirement:
             <ul>
-              {pokemonDetail.stats.map((stat) => {
-                return (
-                  <li>
-                    {stat.stat.name} : {stat.base_stat}
-                  </li>
-                );
-              })}
+              <li>show the sprites front_default as the pokemon image</li>
+              <li>
+                Show the stats details - only stat.name and base_stat is
+                required
+              </li>
             </ul>
           </div>
         </Modal>
