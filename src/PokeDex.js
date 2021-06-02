@@ -31,11 +31,11 @@ function PokeDex() {
           <h2>Requirement:</h2>
           <ul>
             <li>
-              Call this api:https://pokeapi.co/api/v2/pokemon to get pokedex
+              Call this api:https://pokeapi.co/api/v2/pokemon to get pokedex, and show a list of pokemon name.
             </li>
             <li>Implement React Loading and show it during API call</li>
-            <li>when hover, change the pokemon name</li>
-            <li>when clicked, show the modal below</li>
+            <li>when hover on the list item , change the item color to yellow.</li>
+            <li>when clicked the list item, show the modal below</li>
             <li>
               Add a search bar on top of the bar for searching, search will run
               on keyup event
