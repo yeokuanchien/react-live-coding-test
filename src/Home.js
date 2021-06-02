@@ -19,11 +19,11 @@ function Home() {
         <b>
           Requirement: Try to show the hidden button and make it clickable that
           goes to /pokedex when the input below is "Ready!" remember to hide the
-          hint away when Ready! is in the textbox.
+          red text away when "Ready!" is in the textbox.
         </b>
         <p>Are you ready to be a pokemon master?</p>
         <input type="text" name="name" />
-        {!isReady && <span style={{ color: "red" }}>I am not ready yet!</span>}
+        <span style={{ color: "red" }}>I am not ready yet!</span>
       </header>
     </div>
   );
