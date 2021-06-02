@@ -17,7 +17,7 @@ function Home() {
           style={{ padding: "10px" }}
         />
         <b>
-          Requirement: Try to show the hidden button and make it clickable that
+          Requirement: Try to show the hidden image and make it clickable that
           goes to /pokedex when the input below is "Ready!" remember to hide the
           red text away when "Ready!" is in the textbox.
         </b>
