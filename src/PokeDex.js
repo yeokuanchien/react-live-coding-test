@@ -85,7 +85,7 @@ function PokeDex() {
                 required in tabular format
               </li>
               <li>Create a bar chart based on the stats above</li>
-              <li>Create a  buttton to download the information generated in this modal. (images and chart must be included)</li>
+              <li>Create a  buttton to download the information generated in this modal as pdf. (images and chart must be included)</li>
             </ul>
           </div>
         </Modal>
