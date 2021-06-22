@@ -81,8 +81,11 @@ function PokeDex() {
               <li>show the sprites front_default as the pokemon image</li>
               <li>
                 Show the stats details - only stat.name and base_stat is
-                required
+                required in tabular format
               </li>
+              <li>Create a bar chart based on the stats above</li>
+              <li>Create a  buttton to download the information generated in this modal. (images and chart must be included)</li>
+              <li>If you do more than expected (E.g redesign the page / create a chat feature at the bottom right). it would be good.</li>
             </ul>
           </div>
         </Modal>
