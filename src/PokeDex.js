@@ -42,6 +42,7 @@ function PokeDex() {
             </li>
             <li>Implement sorting and pagingation</li>
             <li>Commit your codes after done</li>
+            <li>If you do more than expected (E.g redesign the page / create a chat feature at the bottom right). it would be good.</li>
           </ul>
         </header>
       </div>
@@ -85,7 +86,6 @@ function PokeDex() {
               </li>
               <li>Create a bar chart based on the stats above</li>
               <li>Create a  buttton to download the information generated in this modal. (images and chart must be included)</li>
-              <li>If you do more than expected (E.g redesign the page / create a chat feature at the bottom right). it would be good.</li>
             </ul>
           </div>
         </Modal>
