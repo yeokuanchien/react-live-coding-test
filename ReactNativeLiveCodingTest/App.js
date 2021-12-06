@@ -10,8 +10,8 @@ const App = () => {
   // const [isReady, setIsReady] = useState(false);
 
   return (
-    <View className="App">
-      <Header></Header>
+    <View style={styles.container}>
+      <Header />
 
       {/* <header className="App-header">
         <img
@@ -21,19 +21,18 @@ const App = () => {
           alt="logo"
           style={{padding: '10px'}}
         />
-        <b>
-          Requirement: Try to show the hidden image and make it clickable that
-          goes to /pokedex when the input below is "Ready!" remember to hide the
-          red text away when "Ready!" is in the textbox.
-        </b>
-        <p>Are you ready to be a pokemon master?</p>
-        <input type="text" name="name" />
-        <span style={{color: 'red'}}>I am not ready yet!</span>
+    
+     
+ 
       </header> */}
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+  },
+});
 
 export default App;
