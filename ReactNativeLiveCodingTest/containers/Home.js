@@ -1,7 +1,14 @@
 import React, {useState} from 'react';
-import {Image, StyleSheet, Text, TextInput, View} from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [text, setText] = useState('');
   const [isReady, setIsReady] = useState(false);
 
@@ -13,12 +20,18 @@ const Home = () => {
   return (
     <View style={styles.container}>
       {isReady && (
-        <Image
-          style={styles.image}
-          source={{
-            uri: 'https://www.freeiconspng.com/uploads/file-pokeball-png-0.png',
-          }}
-        />
+        <TouchableOpacity
+          onPress={() => {
+            console.log('sdf');
+            navigation.navigate('Pokedex');
+          }}>
+          <Image
+            style={styles.image}
+            source={{
+              uri: 'https://www.freeiconspng.com/uploads/file-pokeball-png-0.png',
+            }}
+          />
+        </TouchableOpacity>
       )}
       <Text style={styles.requirement}>
         Requirement: Try to show the hidden image and make it clickable that
