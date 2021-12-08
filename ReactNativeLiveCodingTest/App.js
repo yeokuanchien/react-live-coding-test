@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Pokedex">
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Pokedex" component={PokeDex} />
       </Stack.Navigator>
@@ -18,10 +18,6 @@ const App = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 100,
-  },
-});
+const styles = StyleSheet.create({});
 
 export default App;

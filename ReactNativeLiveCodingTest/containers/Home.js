@@ -22,7 +22,6 @@ const Home = ({navigation}) => {
       {isReady && (
         <TouchableOpacity
           onPress={() => {
-            console.log('sdf');
             navigation.navigate('Pokedex');
           }}>
           <Image
@@ -33,11 +32,6 @@ const Home = ({navigation}) => {
           />
         </TouchableOpacity>
       )}
-      <Text style={styles.requirement}>
-        Requirement: Try to show the hidden image and make it clickable that
-        goes to /pokedex when the input below is "Ready!" remember to hide the
-        red text away when "Ready!" is in the textbox.
-      </Text>
       <Text> Are you ready to be a pokemon master?</Text>
       <View>
         <TextInput
