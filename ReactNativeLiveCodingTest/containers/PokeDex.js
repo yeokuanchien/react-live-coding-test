@@ -6,27 +6,13 @@ import {
   Pressable,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
-  Dimensions,
 } from 'react-native';
 import CustomBarChart from '../components/customBarChart';
 import CustomTable from '../components/customTable';
-
-const PokedexListItem = ({item, viewDetail}) => {
-  return (
-    <TouchableOpacity
-      style={styles.pokedexListItem}
-      onPress={() => {
-        viewDetail(item);
-      }}>
-      <Text>{item.name}</Text>
-    </TouchableOpacity>
-  );
-};
+import PokedexListItem from '../components/PokeDexListItem';
 
 const PokemonDetailModal = ({modalVisible, closeModal, pokemon}) => {
-  console.log(pokemon.stats);
   return (
     <View style={styles.centeredView}>
       <Modal animationType="slide" transparent={true} visible={modalVisible}>
@@ -39,7 +25,7 @@ const PokemonDetailModal = ({modalVisible, closeModal, pokemon}) => {
               }}
             />
             <CustomTable pokemonStats={pokemon.stats} />
-            <CustomBarChart />
+            <CustomBarChart pokemonStats={pokemon.stats} />
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={closeModal}>
@@ -117,14 +103,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22,
+    marginTop: 16,
   },
   modalView: {
-    margin: 20,
+    margin: 16,
     backgroundColor: 'white',
     borderRadius: 20,
     padding: 35,
     alignItems: 'center',
+    //shadow
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -139,9 +126,6 @@ const styles = StyleSheet.create({
     padding: 10,
     elevation: 2,
   },
-  buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
   buttonClose: {
     backgroundColor: '#2196F3',
   },
@@ -150,10 +134,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  modalText: {
-    marginBottom: 15,
-    textAlign: 'center',
-  },
+
   image: {
     height: 100,
     width: 100,
