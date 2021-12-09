@@ -8,7 +8,10 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Dimensions,
 } from 'react-native';
+import CustomBarChart from '../components/customBarChart';
+import CustomTable from '../components/customTable';
 
 const PokedexListItem = ({item, viewDetail}) => {
   return (
@@ -23,6 +26,7 @@ const PokedexListItem = ({item, viewDetail}) => {
 };
 
 const PokemonDetailModal = ({modalVisible, closeModal, pokemon}) => {
+  console.log(pokemon.stats);
   return (
     <View style={styles.centeredView}>
       <Modal animationType="slide" transparent={true} visible={modalVisible}>
@@ -34,6 +38,8 @@ const PokemonDetailModal = ({modalVisible, closeModal, pokemon}) => {
                 uri: pokemon.sprites.front_default,
               }}
             />
+            <CustomTable pokemonStats={pokemon.stats} />
+            <CustomBarChart />
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={closeModal}>
@@ -46,14 +52,6 @@ const PokemonDetailModal = ({modalVisible, closeModal, pokemon}) => {
   );
 };
 
-const getPokemonList = async () => {
-  const res = await fetch('https://pokeapi.co/api/v2/pokemon', {
-    method: 'get',
-  });
-  const data = await res.json();
-  return data.results;
-};
-
 const PokeDex = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [pokemonDetail, setPokemonDetail] = useState(null);
@@ -62,6 +60,14 @@ const PokeDex = () => {
   useEffect(() => {
     getPokemonList().then(items => setItems(items));
   }, []);
+
+  const getPokemonList = async () => {
+    const res = await fetch('https://pokeapi.co/api/v2/pokemon', {
+      method: 'get',
+    });
+    const data = await res.json();
+    return data.results;
+  };
 
   const getPokemonDetail = async item => {
     const res = await fetch(item.url, {
