@@ -1,30 +1,44 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {DataTable} from 'react-native-paper';
+import {View, StyleSheet, Text} from 'react-native';
 
 export default function CustomTable({pokemonStats}) {
   const tableRow = [];
   pokemonStats.forEach((v, index) => {
     tableRow.push(
-      <DataTable.Row key={index}>
-        <DataTable.Cell>{v.stat.name}</DataTable.Cell>
-        <DataTable.Cell>{v.base_stat}</DataTable.Cell>
-      </DataTable.Row>,
+      <View style={styles.row} key={index}>
+        <View style={{flex: 1, alignItems: 'center'}}>
+          <Text>{v.stat.name}</Text>
+        </View>
+        <View style={{flex: 1, alignItems: 'center'}}>
+          <Text>{v.base_stat}</Text>
+        </View>
+      </View>,
     );
   });
   return (
     <View style={styles.container}>
-      <DataTable>
-        <DataTable.Header>
-          <DataTable.Title>Stat Name</DataTable.Title>
-          <DataTable.Title>Base Stat</DataTable.Title>
-        </DataTable.Header>
-        {tableRow}
-      </DataTable>
+      <View style={styles.tableHeader}>
+        <View style={styles.row}>
+          <View style={{flex: 1, alignItems: 'center'}}>
+            <Text>Stat Name</Text>
+          </View>
+          <View style={{flex: 1, alignItems: 'center'}}>
+            <Text>Base Stat</Text>
+          </View>
+        </View>
+      </View>
+      {tableRow}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {width: 300, paddingVertical: 20},
+  row: {
+    flexDirection: 'row',
+  },
+  tableHeader: {
+    borderBottomColor: 'black',
+    borderBottomWidth: 2,
+  },
 });
